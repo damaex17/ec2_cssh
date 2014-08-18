@@ -40,7 +40,6 @@ def main():
   for host in hosts:
     if creg.search(host):
       host_list += host_dict[host] + ' '
-      #host_list += host + '.popmog.com '
   print len(sys.argv)
   if len(sys.argv) == 3:
     out = commands.getoutput('cssh -l %s %s' % (sys.argv[2],host_list))
