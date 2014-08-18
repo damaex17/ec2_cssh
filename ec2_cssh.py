@@ -19,7 +19,7 @@ def fill_dict():
     reservations = conn.get_all_instances()
     for r in reservations:
       for i in r.instances:
-        if 'Name' in i.tags:
+        if 'Name' in i.tags and i.state == 'running':
           n = i.tags['Name']
         else:
           n = '???'
@@ -39,7 +39,6 @@ def main():
   for host in hosts:
     if regex.search(host):
       host_list += host_dict[host] + ' '
-  print len(sys.argv)
   if len(sys.argv) == 3:
     out = commands.getoutput('cssh -l %s %s' % (sys.argv[2],host_list))
   else:
