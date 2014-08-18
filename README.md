@@ -1,4 +1,4 @@
-ec2_cssh
+ec2 cssh
 ========
 
 cssh wrapper utilizing regex for matching tag names of aws instances.
