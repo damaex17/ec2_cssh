@@ -32,13 +32,12 @@ def main():
     usage()
     sys.exit(-1)
   else:
-    regex = sys.argv[1]
-    creg = re.compile(regex)
+    regex = re.compile(sys.argv[1])
   host_list = ''
   host_dict = fill_dict()
   hosts = host_dict.keys()
   for host in hosts:
-    if creg.search(host):
+    if regex.search(host):
       host_list += host_dict[host] + ' '
   print len(sys.argv)
   if len(sys.argv) == 3:
